@@ -2,9 +2,8 @@ import Link from 'next/link'
 
 export default function Home() {
   return (
-    <main className="min-h-screen currency-bg">
-      <div className="min-h-screen bg-gradient-to-br from-white/98 via-white/95 to-white/98">
-        <div className="container mx-auto px-4 py-12">
+    <div className="min-h-screen">
+      <div className="container mx-auto px-4 py-12">
           <header className="text-center mb-16">
             <div className="relative">
               <h1 className="text-6xl font-bold kenya-text-accent mb-6">
@@ -353,8 +352,7 @@ export default function Home() {
               </Link>
             </div>
           </section>
-        </div>
       </div>
-    </main>
+    </div>
   )
 }

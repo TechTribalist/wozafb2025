@@ -89,12 +89,8 @@ export default function Calculator() {
   }
 
   return (
-    <main className="min-h-screen currency-bg">
-      <div className="min-h-screen bg-gradient-to-br from-white/98 via-white/95 to-white/98">
-        <div className="container mx-auto px-4 py-12">
-          <Link href="/" className="kenya-button px-6 py-3 rounded-full mb-8 inline-block no-underline">
-            ← Back to Home
-          </Link>
+    <div className="min-h-screen">
+      <div className="container mx-auto px-4 py-12">
           
           <header className="mb-16 text-center">
             <div className="relative">
@@ -621,8 +617,7 @@ export default function Calculator() {
               )}
             </div>
           </div>
-        </div>
       </div>
-    </main>
+    </div>
   )
 }
