@@ -4,10 +4,6 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { CalculatorInput } from '@/types'
 import { calculateTaxImpact } from '@/utils/taxCalculator'
-import CalculateIcon from '@mui/icons-material/Calculate'
-import AttachMoneyIcon from '@mui/icons-material/AttachMoney'
-import TimelineIcon from '@mui/icons-material/Timeline'
-import GpsFixedIcon from '@mui/icons-material/GpsFixed'
 
 export default function Calculator() {
   const [input, setInput] = useState<CalculatorInput>({
@@ -48,21 +44,28 @@ export default function Calculator() {
           <header className="mb-16 text-center">
             <div className="relative">
               <h1 className="text-5xl font-bold kenya-text-accent mb-6 flex items-center justify-center gap-4">
-                <CalculateIcon sx={{ fontSize: 60, color: 'var(--kenya-green)' }} />
+                <svg className="w-16 h-16 text-green-600" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H9v-2h5v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                </svg>
                 Tax Impact Calculator
               </h1>
               <div className="absolute -top-2 -right-8 text-3xl">
-                <AttachMoneyIcon sx={{ fontSize: 40, color: 'var(--kenya-green)' }} />
+                <svg className="w-10 h-10 text-green-600" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/>
+                </svg>
               </div>
               <div className="absolute -bottom-1 -left-6 text-2xl">
-                <TimelineIcon sx={{ fontSize: 32, color: 'var(--kenya-blue)' }} />
+                <svg className="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M23 8c0 1.1-.9 2-2 2-.18 0-.35-.02-.51-.07l-3.56 3.55c.05.16.07.34.07.52 0 1.1-.9 2-2 2s-2-.9-2-2c0-.18.02-.36.07-.52l-2.55-2.55c-.16.05-.34.07-.52.07s-.36-.02-.52-.07l-4.55 4.56c.05.16.07.33.07.51 0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2c.18 0 .35.02.51.07l4.56-4.55C8.02 9.36 8 9.18 8 9c0-1.1.9-2 2-2s2 .9 2 2c0 .18-.02.36-.07.52l2.55 2.55c.16-.05.34-.07.52-.07s.36.02.52.07l3.56-3.55C19.02 8.35 19 8.18 19 8c0-1.1.9-2 2-2s2 .9 2 2z"/>
+                </svg>
               </div>
             </div>
             <p className="text-2xl kenya-text-primary max-w-3xl mx-auto">
-              Calculate how the Finance Bill 2025 affects <span className="kenya-text-accent font-semibold">your personal taxes</span>
+              See how <span className="kenya-text-accent font-semibold">tax base expansion</span> affects you personally - 
+              most individuals benefit while the system generates <span className="kenya-text-accent font-semibold">more revenue</span>
             </p>
             <div className="mt-6 inline-block px-6 py-2 status-beneficial text-white rounded-full text-sm font-medium">
-              💸 See Your Tax Impact: 2024 vs 2025
+              📊 Broader Base = Fair Share for All
             </div>
           </header>
 
@@ -155,9 +158,11 @@ export default function Calculator() {
               {!showResults ? (
                 <div className="text-center py-16 security-lines rounded-xl">
                   <div className="text-6xl mb-6">
-                    <GpsFixedIcon sx={{ fontSize: 80, color: 'var(--kenya-violet)' }} />
+                    <svg className="w-20 h-20 mx-auto text-purple-600" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm8.94 3A8.994 8.994 0 0013 3.06V1h-2v2.06A8.994 8.994 0 003.06 11H1v2h2.06A8.994 8.994 0 0011 20.94V23h2v-2.06A8.994 8.994 0 0020.94 13H23v-2h-2.06zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/>
+                    </svg>
                   </div>
-                  <p className="text-xl kenya-text-primary">Fill in your information and click "Calculate Tax Impact" to see results</p>
+                  <p className="text-xl kenya-text-primary">See how expanding the tax base benefits both you and the economy - calculate your fair share contribution</p>
                 </div>
               ) : results && (
                 <div className="space-y-8">

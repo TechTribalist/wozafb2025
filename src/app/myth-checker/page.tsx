@@ -2,9 +2,6 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import SearchIcon from '@mui/icons-material/Search'
-import CheckCircleIcon from '@mui/icons-material/CheckCircle'
-import CancelIcon from '@mui/icons-material/Cancel'
 
 export default function MythChecker() {
   const [selectedMyth, setSelectedMyth] = useState<number | null>(null)
@@ -115,22 +112,28 @@ export default function MythChecker() {
           <header className="mb-16 text-center">
             <div className="relative">
               <h1 className="text-5xl font-bold kenya-text-accent mb-6 flex items-center justify-center gap-4">
-                <SearchIcon sx={{ fontSize: 60, color: 'var(--kenya-red)' }} />
+                <svg className="w-16 h-16 text-red-600" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                </svg>
                 Myth vs Truth
               </h1>
               <div className="absolute -top-2 -right-8 text-3xl">
-                <CheckCircleIcon sx={{ fontSize: 40, color: '#10b981' }} />
+                <svg className="w-10 h-10 text-green-500" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
               </div>
               <div className="absolute -bottom-1 -left-6 text-2xl">
-                <CancelIcon sx={{ fontSize: 32, color: '#ef4444' }} />
+                <svg className="w-8 h-8 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"/>
+                </svg>
               </div>
             </div>
             <p className="text-2xl kenya-text-primary max-w-3xl mx-auto">
-              Click on any statement to see the <span className="kenya-text-accent font-semibold">verified facts</span> 
-              from official sources
+              Many myths claim <span className="kenya-text-accent font-semibold">massive tax rate increases</span>. 
+              The reality: Finance Bill 2025 focuses on <span className="kenya-text-accent font-semibold">expanding who pays</span>, not how much
             </p>
             <div className="mt-6 inline-block px-6 py-2 status-costly text-white rounded-full text-sm font-medium">
-              🚫 Debunking Finance Bill 2025 Misinformation
+              📊 Base Expansion Strategy vs. Rate Increase Myths
             </div>
           </header>
 
