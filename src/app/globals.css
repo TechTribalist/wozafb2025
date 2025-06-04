@@ -1,8 +1,24 @@
 @import "tailwindcss";
 
+/* Kenyan Currency-Inspired Theme */
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  
+  /* Kenyan Shilling Colors */
+  --kenya-green: #2D5016; /* 500 KES note - Safari Green */
+  --kenya-green-light: #4A7C23;
+  --kenya-brown: #8B4513; /* 1000 KES note - Elephant Brown */
+  --kenya-brown-light: #CD853F;
+  --kenya-blue: #1E3A8A; /* 200 KES note - Rhino Blue */
+  --kenya-blue-light: #3B82F6;
+  --kenya-red: #DC2626; /* 50 KES note - Buffalo Red */
+  --kenya-red-light: #EF4444;
+  --kenya-violet: #7C3AED; /* 100 KES note - Leopard Violet */
+  --kenya-violet-light: #A855F7;
+  
+  /* Currency Pattern */
+  --currency-pattern: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%238B4513' fill-opacity='0.05'%3E%3Cpath d='M0 0h20v20H0V0zm10 17a7 7 0 1 0 0-14 7 7 0 0 0 0 14z'/%3E%3C/g%3E%3C/svg%3E");
 }
 
 @theme inline {
@@ -23,4 +39,207 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Currency-inspired background pattern */
+.currency-bg {
+  background: 
+    linear-gradient(135deg, rgba(45, 80, 22, 0.08) 0%, rgba(139, 69, 19, 0.08) 100%),
+    var(--currency-pattern);
+  background-size: 60px 60px, 20px 20px;
+  background-color: #fafafa;
+}
+
+.currency-accent-bg {
+  background: 
+    linear-gradient(45deg, var(--kenya-blue) 0%, var(--kenya-violet) 100%),
+    var(--currency-pattern);
+  background-size: 40px 40px, 15px 15px;
+}
+
+/* Enhanced gradients */
+.kenya-gradient {
+  background: linear-gradient(135deg, 
+    var(--kenya-green) 0%, 
+    var(--kenya-green-light) 25%, 
+    var(--kenya-brown-light) 75%, 
+    var(--kenya-brown) 100%
+  );
+}
+
+.kenya-card-gradient {
+  background: linear-gradient(145deg, 
+    rgba(45, 80, 22, 0.05) 0%, 
+    rgba(139, 69, 19, 0.05) 100%
+  );
+}
+
+/* Security line pattern like banknotes */
+.security-lines {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 2px,
+    rgba(45, 80, 22, 0.1) 2px,
+    rgba(45, 80, 22, 0.1) 4px
+  );
+}
+
+/* Currency-inspired borders */
+.currency-border {
+  border: 2px solid transparent;
+  border-image: linear-gradient(45deg, var(--kenya-green), var(--kenya-brown), var(--kenya-blue)) 1;
+  border-radius: 12px;
+}
+
+/* Enhanced shadows with currency colors */
+.kenya-shadow {
+  box-shadow: 
+    0 4px 6px -1px rgba(45, 80, 22, 0.1),
+    0 2px 4px -1px rgba(139, 69, 19, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.kenya-shadow-lg {
+  box-shadow: 
+    0 10px 15px -3px rgba(45, 80, 22, 0.1),
+    0 4px 6px -2px rgba(139, 69, 19, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Typography enhancements */
+.kenya-text-primary {
+  color: var(--kenya-brown);
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+}
+
+.kenya-text-accent {
+  background: linear-gradient(45deg, var(--kenya-green), var(--kenya-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+/* Interactive elements */
+.kenya-button {
+  background: linear-gradient(135deg, var(--kenya-green), var(--kenya-green-light));
+  border: 1px solid var(--kenya-green);
+  color: white;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.kenya-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.kenya-button:hover::before {
+  left: 100%;
+}
+
+.kenya-button:hover {
+  background: linear-gradient(135deg, var(--kenya-green-light), var(--kenya-brown-light));
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(45, 80, 22, 0.3);
+}
+
+/* Status colors inspired by banknotes */
+.status-beneficial {
+  background: linear-gradient(135deg, var(--kenya-green), var(--kenya-green-light));
+  color: white;
+}
+
+.status-costly {
+  background: linear-gradient(135deg, var(--kenya-red), var(--kenya-red-light));
+  color: white;
+}
+
+.status-neutral {
+  background: linear-gradient(135deg, var(--kenya-blue), var(--kenya-blue-light));
+  color: white;
+}
+
+.status-mixed {
+  background: linear-gradient(135deg, var(--kenya-violet), var(--kenya-violet-light));
+  color: white;
+}
+
+/* Enhanced cards */
+.kenya-card {
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 16px;
+  border: 1px solid rgba(45, 80, 22, 0.15);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.kenya-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--kenya-green), var(--kenya-brown), var(--kenya-blue));
+}
+
+.kenya-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 
+    0 20px 25px -5px rgba(45, 80, 22, 0.1),
+    0 10px 10px -5px rgba(139, 69, 19, 0.04);
+}
+
+/* Removed floating animation for icons */
+
+/* Pulse animation for important elements */
+@keyframes pulse-kenya {
+  0%, 100% { 
+    box-shadow: 0 0 0 0 rgba(45, 80, 22, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(45, 80, 22, 0);
+  }
+}
+
+.pulse-kenya {
+  animation: pulse-kenya 2s infinite;
+}
+
+/* Additional text visibility improvements */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--kenya-brown);
+  font-weight: 700;
+}
+
+p {
+  color: #333333;
+  line-height: 1.6;
+}
+
+.text-gray-700 {
+  color: #374151 !important;
+}
+
+.text-gray-500 {
+  color: #6B7280 !important;
+}
+
+/* Mobile responsive enhancements */
+@media (max-width: 768px) {
+  .kenya-card:hover {
+    transform: translateY(-2px) scale(1.01);
+  }
 }
