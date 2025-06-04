@@ -16,7 +16,9 @@ export default function Explorer() {
       year: 2025,
       summary: "Expands mortgage interest relief to include self-built homes and increases limit from KES 300,000 to KES 360,000 annually",
       impactLevel: 'beneficial' as const,
-      tags: ['housing', 'tax relief', 'homeowners', 'construction', 'mortgage']
+      tags: ['housing', 'tax relief', 'homeowners', 'construction', 'mortgage'],
+      comparisonSlug: "housing-tax-relief",
+      relatedMyths: [1]
     },
     {
       id: 2,
@@ -25,7 +27,9 @@ export default function Explorer() {
       year: 2025,
       summary: "Increases tax-free per diem limit from KES 2,000 to KES 10,000 per day for employees working out of town",
       impactLevel: 'beneficial' as const,
-      tags: ['per diem', 'employees', 'travel allowance', 'employment benefits']
+      tags: ['per diem', 'employees', 'travel allowance', 'employment benefits'],
+      comparisonSlug: "per-diem-benefits",
+      relatedMyths: [9]
     },
     {
       id: 3,
@@ -34,7 +38,9 @@ export default function Explorer() {
       year: 2025,
       summary: "Reduces digital asset tax from 3% to 1.5% of transfer value to encourage use of regulated platforms",
       impactLevel: 'beneficial' as const,
-      tags: ['digital assets', 'cryptocurrency', 'fintech', 'technology']
+      tags: ['digital assets', 'cryptocurrency', 'fintech', 'technology'],
+      comparisonSlug: "digital-asset-tax",
+      relatedMyths: [5]
     },
     {
       id: 4,
@@ -43,7 +49,9 @@ export default function Explorer() {
       year: 2025,
       summary: "Expands SEP tax to all internet and electronic networks, removes KES 5 million threshold for non-residents",
       impactLevel: 'neutral' as const,
-      tags: ['digital services', 'foreign companies', 'internet', 'tax base expansion']
+      tags: ['digital services', 'foreign companies', 'internet', 'tax base expansion'],
+      comparisonSlug: "sep-tax",
+      relatedMyths: [5]
     },
     {
       id: 5,
@@ -52,7 +60,9 @@ export default function Explorer() {
       year: 2025,
       summary: "Limits carry forward of business tax losses to 5 years instead of indefinitely",
       impactLevel: 'costly' as const,
-      tags: ['business losses', 'corporate tax', 'long-term investments', 'startups']
+      tags: ['business losses', 'corporate tax', 'long-term investments', 'startups'],
+      comparisonSlug: "carry-forward-losses",
+      relatedMyths: []
     },
     {
       id: 6,
@@ -61,7 +71,9 @@ export default function Explorer() {
       year: 2025,
       summary: "Moves electric bicycles, solar batteries, and mobile phones from zero-rated to exempt status",
       impactLevel: 'costly' as const,
-      tags: ['VAT', 'electric vehicles', 'solar energy', 'mobile phones', 'clean technology']
+      tags: ['VAT', 'electric vehicles', 'solar energy', 'mobile phones', 'clean technology'],
+      comparisonSlug: "vat-electric-items",
+      relatedMyths: [7]
     },
     {
       id: 7,
@@ -239,18 +251,22 @@ export default function Explorer() {
                 </div>
                 
                 <div className="flex gap-4">
-                  <Link 
-                    href="/clause-comparison"
-                    className="text-blue-600 hover:underline text-sm"
-                  >
-                    Compare versions →
-                  </Link>
-                  <Link 
-                    href="/myth-checker"
-                    className="text-blue-600 hover:underline text-sm"
-                  >
-                    Related myths →
-                  </Link>
+                  {clause.comparisonSlug && (
+                    <Link 
+                      href={`/clause-comparison?comparison=${clause.comparisonSlug}`}
+                      className="text-blue-600 hover:underline text-sm"
+                    >
+                      Compare versions →
+                    </Link>
+                  )}
+                  {clause.relatedMyths && clause.relatedMyths.length > 0 && (
+                    <Link 
+                      href={`/myth-checker?myth=${clause.relatedMyths[0]}`}
+                      className="text-blue-600 hover:underline text-sm"
+                    >
+                      Related myths →
+                    </Link>
+                  )}
                   <Link 
                     href="/calculator"
                     className="text-blue-600 hover:underline text-sm"

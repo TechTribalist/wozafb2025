@@ -1,16 +1,20 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, Suspense } from 'react'
+import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 
-export default function ClauseComparison() {
+function ClauseComparisonContent() {
   const [selectedComparison, setSelectedComparison] = useState(0)
+  const searchParams = useSearchParams()
 
   const comparisons = [
     {
       id: 1,
       title: "Housing Tax Relief",
       sectionNumber: "Clause 8(b)(i)",
+      urlSlug: "housing-tax-relief",
+      relatedMyths: [1], // Related myth IDs
       clause2024: {
         text: "Tax relief available only for mortgage interest payments up to KES 300,000 per year for mortgage holders",
         impact: "Limited to homeowners with bank mortgages only"
@@ -26,6 +30,8 @@ export default function ClauseComparison() {
       id: 2,
       title: "Per Diem Benefits",
       sectionNumber: "Clause 3",
+      urlSlug: "per-diem-benefits",
+      relatedMyths: [9],
       clause2024: {
         text: "Tax-free per diem limit of KES 2,000 per day for employees working out of town",
         impact: "Limited daily allowance relief for private sector employees"
@@ -41,6 +47,8 @@ export default function ClauseComparison() {
       id: 3,
       title: "Digital Asset Tax",
       sectionNumber: "Clause 28(d)",
+      urlSlug: "digital-asset-tax",
+      relatedMyths: [5],
       clause2024: {
         text: "3% tax on transfer or exchange value of digital assets",
         impact: "Higher cost for digital asset transactions"
@@ -56,6 +64,8 @@ export default function ClauseComparison() {
       id: 4,
       title: "Significant Economic Presence (SEP) Tax",
       sectionNumber: "Clause 6",
+      urlSlug: "sep-tax",
+      relatedMyths: [5],
       clause2024: {
         text: "SEP tax applies only to digital marketplaces with turnover above KES 5 million",
         impact: "Limited scope allowing some digital businesses to avoid tax"
@@ -71,6 +81,8 @@ export default function ClauseComparison() {
       id: 5,
       title: "Carry Forward of Tax Losses",
       sectionNumber: "Clause 8(c)",
+      urlSlug: "carry-forward-losses",
+      relatedMyths: [],
       clause2024: {
         text: "Businesses could carry forward tax losses indefinitely",
         impact: "Unlimited time to utilize business losses against future profits"
@@ -86,6 +98,8 @@ export default function ClauseComparison() {
       id: 6,
       title: "VAT on Electric Bicycles and Solar Batteries",
       sectionNumber: "Clause 37",
+      urlSlug: "vat-electric-items",
+      relatedMyths: [7],
       clause2024: {
         text: "Electric bicycles and solar batteries were zero-rated (0% VAT with input VAT recovery)",
         impact: "No VAT cost, supporting clean energy adoption"
@@ -101,6 +115,8 @@ export default function ClauseComparison() {
       id: 7,
       title: "PAYE Calculation Method",
       sectionNumber: "Clause 4",
+      urlSlug: "paye-calculation",
+      relatedMyths: [4],
       clause2024: {
         text: "Tax reliefs (personal, insurance) are subtracted after applying progressive tax rates",
         impact: "Tax calculated first, then reliefs deducted from final amount"
@@ -116,6 +132,8 @@ export default function ClauseComparison() {
       id: 8,
       title: "VAT Registration Threshold",
       sectionNumber: "Clause 22",
+      urlSlug: "vat-threshold",
+      relatedMyths: [1],
       clause2024: {
         text: "Mandatory VAT registration for businesses with annual turnover of KES 5 million or more",
         impact: "More businesses required to register and collect VAT"
@@ -131,6 +149,8 @@ export default function ClauseComparison() {
       id: 9,
       title: "Corporate Tax - NIFC Incentives",
       sectionNumber: "Clause 12",
+      urlSlug: "nifc-incentives",
+      relatedMyths: [],
       clause2024: {
         text: "Standard 30% corporate tax rate for all companies",
         impact: "Uniform tax rate regardless of company type or sector"
@@ -146,6 +166,8 @@ export default function ClauseComparison() {
       id: 10,
       title: "Fringe Benefits Tax",
       sectionNumber: "Clause 15",
+      urlSlug: "fringe-benefits-tax",
+      relatedMyths: [],
       clause2024: {
         text: "Fringe benefits taxed at 20% rate",
         impact: "Lower tax burden on employee benefits provided by employers"
@@ -161,6 +183,8 @@ export default function ClauseComparison() {
       id: 11,
       title: "Digital Services Excise Duty",
       sectionNumber: "Clause 29",
+      urlSlug: "digital-excise",
+      relatedMyths: [5],
       clause2024: {
         text: "No specific excise duty on digital services",
         impact: "Digital services not subject to additional excise taxation"
@@ -176,6 +200,8 @@ export default function ClauseComparison() {
       id: 12,
       title: "Capital Gains Tax - Investment Deductions",
       sectionNumber: "Clause 18",
+      urlSlug: "cgt-deductions",
+      relatedMyths: [],
       clause2024: {
         text: "Investment deductions available for projects outside Nairobi/Mombasa and in Special Economic Zones",
         impact: "Tax incentives encourage investment in less developed regions"
@@ -191,6 +217,8 @@ export default function ClauseComparison() {
       id: 13,
       title: "eTIMS VAT Compliance",
       sectionNumber: "Clause 24",
+      urlSlug: "etims-compliance",
+      relatedMyths: [],
       clause2024: {
         text: "Standard VAT input/output offset regardless of invoicing system",
         impact: "All VAT-registered businesses can claim full input VAT"
@@ -206,6 +234,8 @@ export default function ClauseComparison() {
       id: 14,
       title: "Timber Sales Deductions",
       sectionNumber: "Clause 19",
+      urlSlug: "timber-deductions",
+      relatedMyths: [],
       clause2024: {
         text: "Special deductions available for timber sales and forestry activities",
         impact: "Reduced tax burden on forestry sector to encourage sustainable practices"
@@ -218,6 +248,21 @@ export default function ClauseComparison() {
       comparisonNotes: "100% increase in effective tax rate on timber sales may discourage legal forestry activities"
     }
   ]
+
+  // Auto-load comparison based on URL parameters
+  useEffect(() => {
+    const comparisonParam = searchParams.get('comparison')
+    if (comparisonParam) {
+      const index = comparisons.findIndex(comp => 
+        comp.urlSlug === comparisonParam.toLowerCase() ||
+        comp.title.toLowerCase().replace(/\s+/g, '-') === comparisonParam.toLowerCase() ||
+        comp.id.toString() === comparisonParam
+      )
+      if (index !== -1) {
+        setSelectedComparison(index)
+      }
+    }
+  }, [searchParams, comparisons])
 
   const getVerdictColor = (verdict: string) => {
     switch (verdict) {
@@ -321,16 +366,32 @@ export default function ClauseComparison() {
             </p>
           </div>
 
-          <div className="mt-6">
+          <div className="mt-6 flex gap-4">
             <Link 
               href="/calculator"
               className="inline-block bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition-colors"
             >
               Calculate Your Impact →
             </Link>
+            {comparisons[selectedComparison].relatedMyths.length > 0 && (
+              <Link 
+                href={`/myth-checker?myth=${comparisons[selectedComparison].relatedMyths[0]}`}
+                className="inline-block bg-red-600 text-white px-6 py-3 rounded hover:bg-red-700 transition-colors"
+              >
+                Check Related Myths →
+              </Link>
+            )}
           </div>
         </div>
       </div>
     </main>
+  )
+}
+
+export default function ClauseComparison() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ClauseComparisonContent />
+    </Suspense>
   )
 }

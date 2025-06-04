@@ -1,10 +1,12 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, Suspense } from 'react'
+import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 
-export default function MythChecker() {
+function MythCheckerContent() {
   const [selectedMyth, setSelectedMyth] = useState<number | null>(null)
+  const searchParams = useSearchParams()
 
   const myths = [
     {
@@ -80,6 +82,17 @@ export default function MythChecker() {
       relatedCalculator: "employment-benefits"
     }
   ]
+
+  // Auto-load myth based on URL parameters
+  useEffect(() => {
+    const mythParam = searchParams.get('myth')
+    if (mythParam) {
+      const mythIndex = myths.findIndex(myth => myth.id.toString() === mythParam)
+      if (mythIndex !== -1) {
+        setSelectedMyth(mythIndex)
+      }
+    }
+  }, [searchParams, myths])
 
   const getVerdictColor = (verdict: string) => {
     switch (verdict) {
@@ -206,5 +219,13 @@ export default function MythChecker() {
         </div>
       </div>
     </main>
+  )
+}
+
+export default function MythChecker() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <MythCheckerContent />
+    </Suspense>
   )
 }
