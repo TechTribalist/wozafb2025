@@ -283,6 +283,76 @@ export default function Home() {
               </div>
             </div>
           </div>
+
+          {/* Enhanced Calculator Features */}
+          <section className="mt-20">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold kenya-text-accent mb-4">🧮 Enhanced Tax Calculator Features</h2>
+              <p className="text-xl kenya-text-primary max-w-4xl mx-auto">
+                Our comprehensive calculator now covers all major Finance Bill 2025 changes, providing detailed 
+                comparisons across different tax areas based on your specific situation.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              <div className="kenya-card kenya-shadow p-6">
+                <div className="text-center mb-4">
+                  <div className="w-12 h-12 mx-auto bg-blue-100 rounded-full flex items-center justify-center mb-3">
+                    <span className="text-2xl">💼</span>
+                  </div>
+                  <h3 className="font-bold text-lg kenya-text-primary">Individual Taxes</h3>
+                </div>
+                <ul className="space-y-2 text-sm text-gray-700">
+                  <li>✓ PAYE formula changes (reliefs applied before vs after)</li>
+                  <li>✓ Housing relief expansion (KES 300K → 360K)</li>
+                  <li>✓ Per diem increases (KES 2K → 10K per day)</li>
+                  <li>✓ Construction cost deductions</li>
+                  <li>✓ Self-built home qualifications</li>
+                </ul>
+              </div>
+
+              <div className="kenya-card kenya-shadow p-6">
+                <div className="text-center mb-4">
+                  <div className="w-12 h-12 mx-auto bg-purple-100 rounded-full flex items-center justify-center mb-3">
+                    <span className="text-2xl">🏢</span>
+                  </div>
+                  <h3 className="font-bold text-lg kenya-text-primary">Business Taxes</h3>
+                </div>
+                <ul className="space-y-2 text-sm text-gray-700">
+                  <li>✓ VAT threshold change (5M → 8M KES)</li>
+                  <li>✓ eTIMS compliance factors</li>
+                  <li>✓ Corporate tax rates (NIFC 15% vs 30%)</li>
+                  <li>✓ Fringe benefits tax (20% → 30%)</li>
+                  <li>✓ 5-year loss carryforward cap</li>
+                </ul>
+              </div>
+
+              <div className="kenya-card kenya-shadow p-6">
+                <div className="text-center mb-4">
+                  <div className="w-12 h-12 mx-auto bg-indigo-100 rounded-full flex items-center justify-center mb-3">
+                    <span className="text-2xl">💻</span>
+                  </div>
+                  <h3 className="font-bold text-lg kenya-text-primary">Digital Economy</h3>
+                </div>
+                <ul className="space-y-2 text-sm text-gray-700">
+                  <li>✓ Digital Asset Tax (3% → 1.5%)</li>
+                  <li>✓ Digital Services Excise (new 20%)</li>
+                  <li>✓ Expanded SEPT (no threshold)</li>
+                  <li>✓ International client implications</li>
+                  <li>✓ Capital gains changes</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="text-center mt-8">
+              <Link 
+                href="/calculator" 
+                className="kenya-button px-8 py-4 rounded-xl text-lg font-bold inline-block"
+              >
+                🚀 Try Enhanced Calculator →
+              </Link>
+            </div>
+          </section>
         </div>
       </div>
     </main>

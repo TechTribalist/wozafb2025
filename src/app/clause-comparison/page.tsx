@@ -96,6 +96,126 @@ export default function ClauseComparison() {
       },
       verdict: "worse" as const,
       comparisonNotes: "Makes clean energy solutions more expensive as input VAT becomes a cost to suppliers"
+    },
+    {
+      id: 7,
+      title: "PAYE Calculation Method",
+      sectionNumber: "Clause 4",
+      clause2024: {
+        text: "Tax reliefs (personal, insurance) are subtracted after applying progressive tax rates",
+        impact: "Tax calculated first, then reliefs deducted from final amount"
+      },
+      clause2025: {
+        text: "All allowable deductions and reliefs subtracted before applying progressive tax rates",
+        impact: "Lower taxable income base but potential for higher effective tax for some"
+      },
+      verdict: "mixed" as const,
+      comparisonNotes: "Structural change affects how PAYE is calculated - benefits some taxpayers while increasing burden for others"
+    },
+    {
+      id: 8,
+      title: "VAT Registration Threshold",
+      sectionNumber: "Clause 22",
+      clause2024: {
+        text: "Mandatory VAT registration for businesses with annual turnover of KES 5 million or more",
+        impact: "More businesses required to register and collect VAT"
+      },
+      clause2025: {
+        text: "VAT registration threshold increased to KES 8 million annual turnover",
+        impact: "Relief for small/medium businesses; fewer required to register for VAT"
+      },
+      verdict: "better" as const,
+      comparisonNotes: "60% increase in threshold provides significant relief for SMEs, reducing compliance burden"
+    },
+    {
+      id: 9,
+      title: "Corporate Tax - NIFC Incentives",
+      sectionNumber: "Clause 12",
+      clause2024: {
+        text: "Standard 30% corporate tax rate for all companies",
+        impact: "Uniform tax rate regardless of company type or sector"
+      },
+      clause2025: {
+        text: "Preferential 15% tax rate for NIFC-certified startups and qualifying entities",
+        impact: "Significant tax advantage for companies in financial services sector"
+      },
+      verdict: "better" as const,
+      comparisonNotes: "50% tax reduction for NIFC entities promotes Kenya as regional financial hub"
+    },
+    {
+      id: 10,
+      title: "Fringe Benefits Tax",
+      sectionNumber: "Clause 15",
+      clause2024: {
+        text: "Fringe benefits taxed at 20% rate",
+        impact: "Lower tax burden on employee benefits provided by employers"
+      },
+      clause2025: {
+        text: "Fringe benefits taxed at corporate tax rate (30%)",
+        impact: "Higher cost for employers providing benefits to employees"
+      },
+      verdict: "worse" as const,
+      comparisonNotes: "50% increase in fringe benefits tax rate increases employment costs for businesses"
+    },
+    {
+      id: 11,
+      title: "Digital Services Excise Duty",
+      sectionNumber: "Clause 29",
+      clause2024: {
+        text: "No specific excise duty on digital services",
+        impact: "Digital services not subject to additional excise taxation"
+      },
+      clause2025: {
+        text: "20% excise duty introduced on digital services provided by non-residents",
+        impact: "Additional tax burden on international digital service providers"
+      },
+      verdict: "neutral" as const,
+      comparisonNotes: "New tax stream captures revenue from digital economy but may increase costs for consumers"
+    },
+    {
+      id: 12,
+      title: "Capital Gains Tax - Investment Deductions",
+      sectionNumber: "Clause 18",
+      clause2024: {
+        text: "Investment deductions available for projects outside Nairobi/Mombasa and in Special Economic Zones",
+        impact: "Tax incentives encourage investment in less developed regions"
+      },
+      clause2025: {
+        text: "All investment deductions for regional development removed",
+        impact: "Increased CGT burden, reduced incentives for regional investment"
+      },
+      verdict: "worse" as const,
+      comparisonNotes: "Removal of regional investment incentives may discourage development outside major cities"
+    },
+    {
+      id: 13,
+      title: "eTIMS VAT Compliance",
+      sectionNumber: "Clause 24",
+      clause2024: {
+        text: "Standard VAT input/output offset regardless of invoicing system",
+        impact: "All VAT-registered businesses can claim full input VAT"
+      },
+      clause2025: {
+        text: "Non-compliant eTIMS users face reduced input VAT claims (20% penalty)",
+        impact: "Compliance factor affects VAT calculations and cash flow"
+      },
+      verdict: "neutral" as const,
+      comparisonNotes: "Encourages digital compliance but penalizes businesses not using electronic invoicing"
+    },
+    {
+      id: 14,
+      title: "Timber Sales Deductions",
+      sectionNumber: "Clause 19",
+      clause2024: {
+        text: "Special deductions available for timber sales and forestry activities",
+        impact: "Reduced tax burden on forestry sector to encourage sustainable practices"
+      },
+      clause2025: {
+        text: "Timber-related tax deductions removed, full income tax rates apply",
+        impact: "Higher tax burden on forestry sector and timber trade"
+      },
+      verdict: "worse" as const,
+      comparisonNotes: "100% increase in effective tax rate on timber sales may discourage legal forestry activities"
     }
   ]
 
