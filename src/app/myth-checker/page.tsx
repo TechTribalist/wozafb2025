@@ -13,7 +13,7 @@ function MythCheckerContent() {
       id: 1,
       statement: "VAT will increase from 16% to 18%",
       verdict: "false" as const,
-      explanation: "This is false. The Bill does not amend section 5 of the VAT Act, so the standard VAT rate stays at 16%. The claim may have come from reports that Kenya might harmonize its VAT with other East African countries at 18%.",
+      explanation: "This is false. The Bill does not amend section 5 of the VAT Act, so the standard VAT rate remains at 16%. The claim may have come from reports that Kenya might harmonize its VAT with other East African countries at 18%.",
       sources: ["Finance Bill 2025 Analysis", "KPMG Finance Bill Analysis 2025"],
       relatedCalculator: "vat-calculator"
     },

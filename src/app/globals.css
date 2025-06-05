@@ -172,12 +172,12 @@ body {
 
 /* Status colors inspired by banknotes */
 .status-beneficial {
-  background: linear-gradient(135deg, var(--kenya-green), var(--kenya-green-light));
+  background: linear-gradient(135deg, #059669, #10b981);
   color: white;
 }
 
 .status-costly {
-  background: linear-gradient(135deg, var(--kenya-red), var(--kenya-red-light));
+  background: linear-gradient(135deg, #f59e0b, #fbbf24);
   color: white;
 }
 

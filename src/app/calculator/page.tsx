@@ -511,29 +511,29 @@ export default function Calculator() {
                 <div className="space-y-8">
                   {/* Tax Areas Being Calculated */}
                   <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
-                    <h3 className="text-xl font-bold text-blue-800 mb-4">📊 Tax Areas Under Analysis</h3>
-                    <div className="grid md:grid-cols-2 gap-4 text-sm">
-                      <div className="space-y-2">
-                        <div className="flex items-center"><span className="w-3 h-3 bg-green-500 rounded-full mr-2"></span>PAYE (Formula Change)</div>
+                    <h3 className="text-xl font-bold text-blue-900 mb-4">📊 Tax Areas Under Analysis</h3>
+                    <div className="grid md:grid-cols-2 gap-4 text-sm font-medium">
+                      <div className="space-y-3">
+                        <div className="flex items-center"><span className="w-4 h-4 bg-green-600 rounded-full mr-3"></span><span className="text-gray-800">PAYE (Formula Change)</span></div>
                         {(input.incomeType === 'business' || input.incomeType === 'corporate') && (
-                          <div className="flex items-center"><span className="w-3 h-3 bg-purple-500 rounded-full mr-2"></span>VAT (Threshold & Compliance)</div>
+                          <div className="flex items-center"><span className="w-4 h-4 bg-purple-600 rounded-full mr-3"></span><span className="text-gray-800">VAT (Threshold & Compliance)</span></div>
                         )}
                         {input.incomeType === 'corporate' && (
-                          <div className="flex items-center"><span className="w-3 h-3 bg-blue-500 rounded-full mr-2"></span>Corporate Tax (NIFC Rates)</div>
+                          <div className="flex items-center"><span className="w-4 h-4 bg-blue-600 rounded-full mr-3"></span><span className="text-gray-800">Corporate Tax (NIFC Rates)</span></div>
                         )}
                         {input.digitalServicesIncome && (
-                          <div className="flex items-center"><span className="w-3 h-3 bg-indigo-500 rounded-full mr-2"></span>Digital Economy Taxes</div>
+                          <div className="flex items-center"><span className="w-4 h-4 bg-indigo-600 rounded-full mr-3"></span><span className="text-gray-800">Digital Economy Taxes</span></div>
                         )}
                       </div>
-                      <div className="space-y-2">
+                      <div className="space-y-3">
                         {input.propertyTransactions && (
-                          <div className="flex items-center"><span className="w-3 h-3 bg-orange-500 rounded-full mr-2"></span>Capital Gains (Deduction Removal)</div>
+                          <div className="flex items-center"><span className="w-4 h-4 bg-orange-600 rounded-full mr-3"></span><span className="text-gray-800">Capital Gains (Deduction Removal)</span></div>
                         )}
                         {input.bettingFrequency !== 'none' && (
-                          <div className="flex items-center"><span className="w-3 h-3 bg-red-500 rounded-full mr-2"></span>Betting Excise (20% → 35%)</div>
+                          <div className="flex items-center"><span className="w-4 h-4 bg-red-600 rounded-full mr-3"></span><span className="text-gray-800">Betting Excise (20% → 35%)</span></div>
                         )}
                         {input.homeownerType !== 'none' && (
-                          <div className="flex items-center"><span className="w-3 h-3 bg-yellow-500 rounded-full mr-2"></span>Housing Relief Changes</div>
+                          <div className="flex items-center"><span className="w-4 h-4 bg-yellow-600 rounded-full mr-3"></span><span className="text-gray-800">Housing Relief Changes</span></div>
                         )}
                       </div>
                     </div>
@@ -542,7 +542,7 @@ export default function Calculator() {
                   <div className={`p-8 rounded-2xl relative overflow-hidden ${results.savings.amount > 0 ? 'status-beneficial' : 'status-costly'}`}>
                     <div className="relative z-10">
                       <h3 className="font-bold text-2xl mb-4 text-white">
-                        {results.savings.amount > 0 ? '✅ You\'ll be better off!' : '❌ You\'ll pay more taxes'}
+                        {results.savings.amount > 0 ? '✅ You\'ll be better off!' : '⚠️ Higher tax contribution for development'}
                       </h3>
                       <p className="text-4xl font-bold text-white">
                         {formatCurrency(Math.abs(results.savings.amount))} 
@@ -557,7 +557,11 @@ export default function Calculator() {
                       </div>
                     </div>
                     <div className="absolute top-4 right-4 text-6xl opacity-20">
-                      {results.savings.amount > 0 ? '💰' : '💸'}
+                      {results.savings.amount > 0 ? '💰' : (
+                        <svg className="w-16 h-16 text-purple-300" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h2v2h-2v-2zm0-8h2v6h-2V9z"/>
+                        </svg>
+                      )}
                     </div>
                   </div>
 
