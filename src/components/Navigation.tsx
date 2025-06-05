@@ -30,12 +30,12 @@ export default function Navigation() {
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
-            <Link href="/" className="flex items-center space-x-3 font-bold text-xl">
-              <div className="w-8 h-8 bg-gradient-to-br from-green-600 to-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white text-sm">🇰🇪</span>
+            <Link href="/" className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-gradient-to-br from-green-600 to-blue-600 rounded-lg flex items-center justify-center shadow-md">
+                <span className="text-white text-lg">🇰🇪</span>
               </div>
-              <span className="hidden sm:block bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
-                WozaFB2025
+              <span className="hidden sm:block bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent font-black text-2xl tracking-tight">
+                WozaFinanceBill2025
               </span>
             </Link>
 

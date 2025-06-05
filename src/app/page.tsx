@@ -6,7 +6,7 @@ export default function Home() {
       <div className="container mx-auto px-4 py-12">
           <header className="text-center mb-16">
             <div className="relative">
-              <h1 className="text-6xl font-bold kenya-text-accent mb-6">
+              <h1 className="text-5xl font-bold kenya-text-accent mb-6">
                 Finance Bill Navigator 2025
               </h1>
               <div className="absolute -top-4 -right-4 text-4xl">

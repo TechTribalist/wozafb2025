@@ -87,7 +87,7 @@ export default function RootLayout({
                 <div className="w-8 h-8 bg-gradient-to-br from-green-600 to-blue-600 rounded-lg flex items-center justify-center">
                   <span className="text-white text-sm">🇰🇪</span>
                 </div>
-                <span className="font-bold text-lg">WozaFB2025</span>
+                <span className="font-bold text-lg">WozaFinanceBill2025</span>
               </div>
               
               <div className="text-sm text-gray-400">
