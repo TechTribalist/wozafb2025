@@ -127,22 +127,167 @@ export default function Calculator() {
                 Your Information
               </h2>
             
-              <form onSubmit={handleCalculate} className="space-y-8">
-                <div>
-                  <label className="block text-lg font-bold kenya-text-primary mb-3">
-                    💼 Income Type
-                  </label>
-                  <select
-                    value={input.incomeType}
-                    onChange={(e) => setInput({...input, incomeType: e.target.value as any})}
-                    className="w-full px-4 py-4 text-lg text-gray-800 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white shadow-sm"
-                  >
-                    <option value="" disabled className="text-gray-400">Select your income type</option>
-                    <option value="employed" className="text-gray-800">💼 Employed</option>
-                    <option value="freelancer" className="text-gray-800">🖥️ Freelancer</option>
-                    <option value="business" className="text-gray-800">🏢 Business Owner</option>
-                    <option value="corporate" className="text-gray-800">🏛️ Corporate Entity</option>
-                  </select>
+              <form onSubmit={handleCalculate} className="space-y-6">
+                {/* Basic Information */}
+                <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                  <h3 className="text-xl font-bold kenya-text-primary mb-4">📋 Basic Information</h3>
+                  
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-md font-bold kenya-text-primary mb-2">Income Type</label>
+                      <select
+                        value={input.incomeType}
+                        onChange={(e) => setInput({...input, incomeType: e.target.value as any})}
+                        className="w-full px-3 py-3 text-md text-gray-800 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 bg-white"
+                      >
+                        <option value="employed">💼 Employed</option>
+                        <option value="freelancer">🖥️ Freelancer</option>
+                        <option value="business">🏢 Business Owner</option>
+                        <option value="corporate">🏛️ Corporate Entity</option>
+                      </select>
+                    </div>
+                    
+                    <div>
+                      <label className="block text-md font-bold kenya-text-primary mb-2">Monthly Income (KES)</label>
+                      <input
+                        type="number"
+                        value={input.monthlyIncome || ''}
+                        onChange={(e) => setInput({...input, monthlyIncome: Number(e.target.value) || 0})}
+                        className="w-full px-3 py-3 text-md text-gray-800 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 bg-white"
+                        min="0"
+                        placeholder="e.g. 50,000"
+                      />
+                    </div>
+                  </div>
+                  
+                  <div className="mt-4">
+                    <label className="flex items-center space-x-3">
+                      <input
+                        type="checkbox"
+                        checked={input.isDisabled || false}
+                        onChange={(e) => setInput({...input, isDisabled: e.target.checked})}
+                        className="w-5 h-5 text-green-600 border-2 border-gray-300 rounded focus:ring-green-500"
+                      />
+                      <span className="text-md font-medium kenya-text-primary">♿ Person with disability (exemption up to KES 150K/month)</span>
+                    </label>
+                  </div>
+                </div>
+
+                {/* Key Finance Bill 2025 Changes */}
+                <div className="bg-green-50 p-6 rounded-lg border border-green-200">
+                  <h3 className="text-xl font-bold kenya-text-primary mb-4">🎯 Key Finance Bill 2025 Changes</h3>
+                  
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-md font-bold kenya-text-primary mb-2">Homeowner Status</label>
+                      <select
+                        value={input.homeownerType}
+                        onChange={(e) => setInput({...input, homeownerType: e.target.value as any})}
+                        className="w-full px-3 py-3 text-md text-gray-800 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 bg-white"
+                      >
+                        <option value="none">🚫 Not a homeowner</option>
+                        <option value="mortgage">🏦 Paying mortgage (Relief: 300K → 360K)</option>
+                        <option value="self_built">🔨 Building own home (NEW: 360K relief in 2025)</option>
+                      </select>
+                    </div>
+                    
+                    {input.incomeType === 'employed' && (
+                      <div>
+                        <label className="block text-md font-bold kenya-text-primary mb-2">Travel Days per Month</label>
+                        <input
+                          type="number"
+                          value={input.travelDaysPerMonth || ''}
+                          onChange={(e) => setInput({...input, travelDaysPerMonth: Number(e.target.value) || 0})}
+                          className="w-full px-3 py-3 text-md text-gray-800 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 bg-white"
+                          min="0"
+                          max="30"
+                          placeholder="0"
+                        />
+                        <p className="text-sm text-green-600 mt-1 font-medium">
+                          🎉 Per diem limit: KES 2,000 → 10,000 per day (2025)
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                  
+                  <div className="grid md:grid-cols-2 gap-4 mt-4">
+                    {(input.incomeType === 'freelancer' || input.incomeType === 'business') && (
+                      <div>
+                        <label className="block text-md font-bold kenya-text-primary mb-2">Digital Services Income (Monthly)</label>
+                        <input
+                          type="number"
+                          value={input.digitalServicesIncome || ''}
+                          onChange={(e) => setInput({...input, digitalServicesIncome: Number(e.target.value) || 0})}
+                          className="w-full px-3 py-3 text-md text-gray-800 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 bg-white"
+                          min="0"
+                          placeholder="0"
+                        />
+                        <p className="text-sm text-green-600 mt-1 font-medium">
+                          🎉 Tax reduced: 3% → 1.5% (2025)
+                        </p>
+                      </div>
+                    )}
+                    
+                    <div>
+                      <label className="block text-md font-bold kenya-text-primary mb-2">Betting Frequency</label>
+                      <select
+                        value={input.bettingFrequency}
+                        onChange={(e) => setInput({...input, bettingFrequency: e.target.value as any})}
+                        className="w-full px-3 py-3 text-md text-gray-800 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 bg-white"
+                      >
+                        <option value="none">🚫 Never bet</option>
+                        <option value="occasional">🎯 Occasional (KES 2,000/month)</option>
+                        <option value="frequent">🎰 Frequent (KES 10,000/month)</option>
+                      </select>
+                      <p className="text-sm text-orange-600 mt-1 font-medium">
+                        ⚠️ Excise duty: 20% → 35% (2025)
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Optional Advanced Inputs */}
+                <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                  <h3 className="text-xl font-bold kenya-text-primary mb-4">⚙️ Advanced Options (Optional)</h3>
+                  
+                  <div className="grid md:grid-cols-3 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium kenya-text-primary mb-2">Pension Contribution</label>
+                      <input
+                        type="number"
+                        value={input.pensionContribution || ''}
+                        onChange={(e) => setInput({...input, pensionContribution: Number(e.target.value) || 0})}
+                        className="w-full px-3 py-2 text-sm text-gray-800 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-green-500 bg-white"
+                        max="30000"
+                        min="0"
+                        placeholder="Max 30,000/month"
+                      />
+                    </div>
+                    
+                    <div>
+                      <label className="block text-sm font-medium kenya-text-primary mb-2">Insurance Premiums</label>
+                      <input
+                        type="number"
+                        value={input.insurancePremiums || ''}
+                        onChange={(e) => setInput({...input, insurancePremiums: Number(e.target.value) || 0})}
+                        className="w-full px-3 py-2 text-sm text-gray-800 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-green-500 bg-white"
+                        min="0"
+                        placeholder="Monthly premiums"
+                      />
+                    </div>
+                    
+                    <div>
+                      <label className="block text-sm font-medium kenya-text-primary mb-2">Property Transactions</label>
+                      <input
+                        type="number"
+                        value={input.propertyTransactions || ''}
+                        onChange={(e) => setInput({...input, propertyTransactions: Number(e.target.value) || 0})}
+                        className="w-full px-3 py-2 text-sm text-gray-800 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-green-500 bg-white"
+                        min="0"
+                        placeholder="Annual gains"
+                      />
+                    </div>
+                  </div>
                 </div>
 
                 <div>
