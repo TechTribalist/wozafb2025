@@ -24,7 +24,7 @@ export default function Navigation() {
   }
 
   return (
-    <nav className="relative z-50">
+    <nav className="sticky top-0 z-50">
       {/* Main Navigation Bar */}
       <div className="bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-lg">
         <div className="container mx-auto px-4">

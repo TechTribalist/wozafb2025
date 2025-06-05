@@ -90,7 +90,7 @@ export default function RootLayout({
                 <span className="font-bold text-lg">WozaFinanceBill2025</span>
               </div>
               
-              <div className="text-sm text-gray-400">
+              <div className="text-sm text-white">
                 <p>© 2025 Finance Bill Navigator. Educational content for informed citizenship.</p>
               </div>
               
