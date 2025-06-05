@@ -564,7 +564,7 @@ export default function Explorer() {
             </div>
           </div>
           <p className="text-2xl kenya-text-primary max-w-3xl mx-auto leading-relaxed">
-            Search and explore the complete Finance Bill 2025 with <span className="kenya-text-accent font-semibold">full clause text</span> 
+            Search and explore the complete Finance Bill 2025 with <span className="text-green-700 font-bold">full clause text </span> 
             and comprehensive analysis
           </p>
           <div className="mt-6 inline-block px-6 py-2 status-mixed text-white rounded-full text-sm font-medium">
@@ -726,8 +726,8 @@ export default function Explorer() {
                     
                     {expandedClause === clause.id && (
                       <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-6">
-                        <h5 className="font-bold text-gray-800 mb-3 flex items-center">
-                          <span className="text-lg mr-2">⚖️</span>
+                        <h5 className="font-bold text-green-700 mb-3 flex items-center text-lg">
+                          <span className="text-xl mr-2">⚖️</span>
                           Complete Bill Text - {clause.part ? `${clause.part}, ` : ''}{clause.section}:
                         </h5>
                         <div className="bg-white p-4 rounded border">

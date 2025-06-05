@@ -17,8 +17,8 @@ export default function Home() {
               </div>
             </div>
             <p className="text-2xl kenya-text-primary max-w-3xl mx-auto leading-relaxed">
-              Understanding Kenya's strategic approach to <span className="kenya-text-accent font-semibold">broadening the tax base</span> 
-              while <span className="kenya-text-accent font-semibold">maintaining fair tax rates</span> to boost economic growth
+              Understanding Kenya's strategic approach to <span className="text-green-700 font-bold text-2xl">broadening the tax base </span> 
+              while <span className="text-green-700 font-bold text-2xl">maintaining fair tax rates</span> to boost economic growth
             </p>
             <div className="mt-6 inline-block px-6 py-2 currency-accent-bg text-white rounded-full text-sm font-medium">
               🏛️ Official Analysis • 📊 Real Data • ✅ Fact-Checked
@@ -31,7 +31,7 @@ export default function Home() {
               <div className="text-center mb-12">
                 <h2 className="text-4xl font-bold kenya-text-accent mb-6">The Strategic Approach</h2>
                 <p className="text-xl kenya-text-primary max-w-4xl mx-auto leading-relaxed">
-                  Finance Bill 2025 focuses on <strong className="kenya-text-accent">expanding who pays taxes</strong> rather than 
+                  Finance Bill 2025 focuses on <strong className="text-green-700 text-xl">expanding who pays taxes</strong> rather than 
                   increasing how much they pay, creating sustainable revenue growth while supporting economic development.
                 </p>
               </div>
@@ -68,9 +68,9 @@ export default function Home() {
                 </div>
               </div>
               
-              <div className="mt-12 p-6 bg-white/60 rounded-2xl border border-white/40">
-                <p className="text-center text-lg kenya-text-primary font-medium">
-                  <strong className="kenya-text-accent">Key Insight:</strong> More taxpayers at fair rates = More revenue + Economic growth
+              <div className="mt-12 p-6 bg-gradient-to-r from-green-50 to-blue-50 rounded-2xl border-2 border-green-600 shadow-lg">
+                <p className="text-center text-xl font-bold">
+                  <strong className="text-green-700 text-2xl">Key Insight:</strong> <span className="text-blue-700">More taxpayers at fair rates = More revenue + Economic growth</span>
                 </p>
               </div>
             </div>
@@ -86,7 +86,7 @@ export default function Home() {
                 </div>
                 <h2 className="text-2xl font-bold mb-4 kenya-text-primary text-center">Debunk Tax Increase Myths</h2>
                 <p className="text-gray-700 text-center leading-relaxed">
-                  Verify facts about the bill's tax base expansion approach vs. false claims about rate increases
+                  Verify facts about the bill's <span className="text-green-700 font-semibold">tax base expansion</span> approach vs. false claims about rate increases
                 </p>
                 <div className="mt-6 text-center">
                   <span className="inline-block px-4 py-2 bg-red-100 text-red-800 rounded-full text-sm font-medium">
@@ -124,7 +124,7 @@ export default function Home() {
                 </div>
                 <h2 className="text-2xl font-bold mb-4 kenya-text-primary text-center">Your Tax Impact</h2>
                 <p className="text-gray-700 text-center leading-relaxed">
-                  See how base expansion affects you - most pay same or less while system generates more revenue
+                  See how base expansion affects you - most pay same or less while system generates <span className="text-green-700 font-semibold">more revenue</span>
                 </p>
                 <div className="mt-6 text-center">
                   <span className="inline-block px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-medium">
@@ -156,7 +156,7 @@ export default function Home() {
 
           <div className="kenya-card-gradient rounded-3xl p-12 max-w-6xl mx-auto security-lines">
             <div className="text-center mb-12">
-              <h3 className="text-4xl font-bold kenya-text-accent mb-4">How Tax Base Expansion Works</h3>
+              <h3 className="text-4xl font-bold kenya-text-accent mb-4">How <span className="text-green-700">Tax Base Expansion</span> Works</h3>
               <p className="text-lg kenya-text-primary">Evidence of the strategic approach: broader coverage with competitive rates</p>
             </div>
             
@@ -291,8 +291,8 @@ export default function Home() {
                 <div>
                   <h3 className="text-xl font-bold text-amber-800 mb-2">Strategic Reality Check</h3>
                   <p className="text-amber-700 text-lg leading-relaxed">
-                    Many online claims wrongly suggest massive tax rate increases. The reality: Finance Bill 2025 
-                    focuses on expanding who pays taxes, not increasing rates. Verify the strategic approach with official sources.
+                    Many online claims wrongly suggest <span className="text-green-700 font-bold">massive tax rate increases</span>. The reality: Finance Bill 2025 
+                    focuses on <span className="text-green-700 font-bold">expanding who pays taxes</span>, not increasing rates. Verify the strategic approach with official sources.
                   </p>
                 </div>
               </div>

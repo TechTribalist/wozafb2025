@@ -162,8 +162,8 @@ function MythCheckerContent() {
               </div>
             </div>
             <p className="text-2xl kenya-text-primary max-w-3xl mx-auto">
-              Many myths claim <span className="kenya-text-accent font-semibold">massive tax rate increases</span>. 
-              The reality: Finance Bill 2025 focuses on <span className="kenya-text-accent font-semibold">expanding who pays</span>, not how much
+              Many myths claim <span className="text-green-700 font-bold">massive tax rate increases</span>. 
+              The reality: Finance Bill 2025 focuses on <span className="text-green-700 font-bold">expanding who pays</span>, not how much
             </p>
             <div className="mt-6 inline-block px-6 py-2 status-costly text-white rounded-full text-sm font-medium">
               📊 Base Expansion Strategy vs. 12 Rate Increase Myths

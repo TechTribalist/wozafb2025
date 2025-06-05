@@ -112,8 +112,8 @@ export default function Calculator() {
               </div>
             </div>
             <p className="text-2xl kenya-text-primary max-w-3xl mx-auto">
-              See how <span className="kenya-text-accent font-semibold">tax base expansion</span> affects you personally - 
-              most individuals benefit while the system generates <span className="kenya-text-accent font-semibold">more revenue</span>
+              See how <span className="text-green-700 font-bold">tax base expansion</span> affects you personally - 
+              most individuals benefit while the system generates <span className="text-green-700 font-bold">more revenue</span>
             </p>
             <div className="mt-6 inline-block px-6 py-2 status-beneficial text-white rounded-full text-sm font-medium">
               📊 Broader Base = Fair Share for All

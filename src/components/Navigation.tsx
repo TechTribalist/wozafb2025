@@ -35,7 +35,7 @@ export default function Navigation() {
                 <span className="text-white text-lg">🇰🇪</span>
               </div>
               <span className="hidden sm:block bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent font-black text-2xl tracking-tight">
-                WozaFinanceBill2025
+                WozzaFinanceBill2025
               </span>
             </Link>
 
