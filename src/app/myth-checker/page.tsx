@@ -67,9 +67,9 @@ function MythCheckerContent() {
     },
     {
       id: 8,
-      statement: "KRA will access all business trade secrets and personal data",
+      statement: "KRA will use advanced data analytics to catch tax evaders and ensure fair compliance",
       verdict: "true" as const,
-      explanation: "This is true. Section 59A of the Tax Procedures Act is amended to empower KRA to access trade secrets and personal data for integration into the electronic tax management system, including integration with third-party data from telecoms and banks.",
+      explanation: "This is true. Section 59A of the Tax Procedures Act is amended to empower KRA to access trade secrets and personal data for integration into the electronic tax management system, including integration with third-party data from telecoms and banks. KRA's strategy leverages broad, real-time, cross-sectoral data integration and advanced analytics to detect and deter tax evasion by matching actual financial activity with declared tax obligations. This modern approach increases compliance, protects honest taxpayers, and ensures everyone contributes their fair share to national development.",
       sources: ["Finance Bill 2025, Section 59A", "Tax Procedures Act"],
       relatedCalculator: "compliance-calculator"
     },
@@ -80,6 +80,30 @@ function MythCheckerContent() {
       explanation: "This is true. The Bill proposes to increase the threshold for per diem from KES 2,000 per day to KES 10,000 per day, benefiting employees who travel for work.",
       sources: ["Finance Bill 2025, Clause 3", "KPMG Analysis 2025"],
       relatedCalculator: "employment-benefits"
+    },
+    {
+      id: 10,
+      statement: "Neonatal Tax will be introduced on newborn babies",
+      verdict: "false" as const,
+      explanation: "This is completely false with no basis in the Finance Bill 2025. No such tax exists anywhere in the bill. This appears to be fabricated misinformation designed to cause alarm among expectant parents.",
+      sources: ["Complete Finance Bill 2025 Review", "Official Government Statement"],
+      relatedCalculator: "myth-debunker"
+    },
+    {
+      id: 11,
+      statement: "Diaspora Remittance Tax will be imposed on money sent from abroad",
+      verdict: "false" as const,
+      explanation: "This is entirely false. There is no provision in Finance Bill 2025 for taxing diaspora remittances. The government actively encourages remittances as they boost foreign exchange reserves and support families.",
+      sources: ["Finance Bill 2025 Analysis", "Central Bank of Kenya Policy"],
+      relatedCalculator: "remittance-calculator"
+    },
+    {
+      id: 12,
+      statement: "1% levy will be charged on all PayBill and Till Number transactions",
+      verdict: "false" as const,
+      explanation: "This is false. While there are existing taxes on digital financial services, Finance Bill 2025 does not introduce a blanket 1% levy on all PayBill and Till transactions. The existing structure remains unchanged.",
+      sources: ["Finance Bill 2025", "Digital Financial Services Regulations"],
+      relatedCalculator: "digital-transactions"
     }
   ]
 
@@ -142,7 +166,7 @@ function MythCheckerContent() {
               The reality: Finance Bill 2025 focuses on <span className="kenya-text-accent font-semibold">expanding who pays</span>, not how much
             </p>
             <div className="mt-6 inline-block px-6 py-2 status-costly text-white rounded-full text-sm font-medium">
-              📊 Base Expansion Strategy vs. Rate Increase Myths
+              📊 Base Expansion Strategy vs. 12 Rate Increase Myths
             </div>
           </header>
 
