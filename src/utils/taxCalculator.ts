@@ -22,7 +22,7 @@ function calculateProgressiveTax(annualIncome: number): number {
   
   for (const band of TAX_BANDS) {
     if (annualIncome > band.min - 1) {
-      const taxableInThisBand = Math.min(annualIncome, band.max) - band.min + 1
+      const taxableInThisBand = Math.min(annualIncome, band.max) - band.min
       tax += taxableInThisBand * band.rate
     }
   }
