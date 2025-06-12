@@ -32,4 +32,4 @@ After creating and uploading the image, test with:
 - LinkedIn Post Inspector: https://www.linkedin.com/post-inspector/
 - Twitter Card Validator: https://cards-dev.twitter.com/validator
 
-Place the final image at: `/public/images/og-preview.png`
+Place the final image at: /public/images/og-preview.png
